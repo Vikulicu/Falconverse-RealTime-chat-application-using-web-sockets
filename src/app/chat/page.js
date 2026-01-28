@@ -105,8 +105,9 @@ function ChatContent() {
   }, [keyPair, profile]);
 
   useEffect(() => {
-    typingUserRef.current = profile?.name.replace('-', ' ');
-  }, [profile]);
+    socketInitializer();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
